@@ -50,7 +50,7 @@ echo "################ Installing Node ################"
 
 sudo -u $CURRENT_USER curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
-# Change shell to 
+# Change shell to zsh
 echo "################ Installing ZSH ################"
 
 apt install -y zsh
@@ -60,11 +60,11 @@ sudo -u $CURRENT_USER chsh -s $(which zsh)
 sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Set custom zshrc
-sudo -u $CURRENT_USER curl $BASEURL/.zshrc --output ~/.zshrc
+sudo -u $CURRENT_USER curl $BASEURL/.zshrc --output $PWD/.zshrc
 source .zshrc
 
 # Cleanup dotfiles
-sudo -u $CURRENT_USER rm ~/.bash_profile ~/.bashrc ~/.bash_history
-sudo -u $CURRENT_USER touch .hushlogin
+sudo -u $CURRENT_USER rm $PWD/.bash_profile $PWD/.bashrc $PWD/.bash_history
+sudo -u $CURRENT_USER touch $PWD/.hushlogin
 
 nvm install node # Get latest stable
