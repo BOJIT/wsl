@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CURRENT_USER=$SUDO_USER
 BASEURL="https://wsl.bojit.org/"
 
@@ -24,7 +26,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 apt-key fingerprint 0EBFCD88
 
-sudo add-apt-repository \
+add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
@@ -33,22 +35,20 @@ apt update -y
 apt install -y docker-ce
 
 usermod -aG docker $USER
-exec $SHELL -l
+
+apt install -y docker-compose
 
 # Install Python Environment Tools
 echo "################ Installing Python ################"
 
 apt install -y python3-pip python3-dev
+sudo -u $CURRENT_USER curl https://pyenv.run | bash
 sudo -u $CURRENT_USER pip3 install --user pipenv
-
-exec $SHELL -l
 
 # Install Node Environment Tools
 echo "################ Installing Node ################"
 
 sudo -u $CURRENT_USER curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
-exec $SHELL -l
 
 # Change shell to 
 echo "################ Installing ZSH ################"
