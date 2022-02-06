@@ -12,6 +12,8 @@ apt install -y \
     ranger
 
 # Install Docker
+echo "################ Installing Docker ################"
+
 apt install -y \
     apt-transport-https \
     ca-certificates \
@@ -30,21 +32,27 @@ sudo add-apt-repository \
 apt update -y
 apt install -y docker-ce
 
-sudo -u $CURRENT_USER usermod -aG docker $USER
+usermod -aG docker $USER
 exec $SHELL -l
 
 # Install Python Environment Tools
+echo "################ Installing Python ################"
+
 apt install -y python3-pip python3-dev
 sudo -u $CURRENT_USER pip3 install --user pipenv
 
 exec $SHELL -l
 
 # Install Node Environment Tools
+echo "################ Installing Node ################"
+
 sudo -u $CURRENT_USER curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 exec $SHELL -l
 
-# Change shell to ZSH
+# Change shell to 
+echo "################ Installing ZSH ################"
+
 apt install -y zsh
 sudo -u $CURRENT_USER chsh -s $(which zsh)
 
@@ -55,7 +63,8 @@ sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh
 sudo -u $CURRENT_USER curl $BASEURL/.zshrc --output ~/.zshrc
 source .zshrc
 
-# Remove unused dotfiles
-# TODO
+# Cleanup dotfiles
+sudo -u $CURRENT_USER rm ~/.bash_profile ~/.bashrc ~/.bash_history
+sudo -u $CURRENT_USER touch .hushlogin
 
 nvm install node # Get latest stable
