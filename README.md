@@ -43,4 +43,32 @@ sudo sh -c "$(curl -fsSL https://wsl.bojit.org/install.sh)"
 
 - Setup SSH keys + Gitconfig: either setup from scratch in WSL or symlink to your Windows keys.
 
+I like to do the following:
+```bash
+mkdir ~/Git                                         # Folder for Git repositories in WSL
+ln -s /mnt/c/Users/<USER_NAME>/Git_Local Git_Local  # Symlink to local (Windows) Git repo folder
+ln -s /mnt/c/Users/<USER_NAME>/Documents Documents  # Convenient shortcut to Windows documents
+
+ln -s /mnt/c/Users/<USER_NAME>/.gitconfig .gitconfig    # Share gitconfig between Windows and WSL
+# You can share any other convenient dotfiles here
+
+# Due to file permissions in WSL mounted volumes, you cannot symlink your SSH keys. Just copy the keys to your WSL distro:
+cp -r /mnt/c/Users/<USER_NAME>/.ssh ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+```
+
 ## Appendix: Installing Distro without the Microsoft Store
+
+Sometimes it is not possible to install Ubuntu from the Microsoft Store (particularly in corporate environments). However, the installation can be done manually in a local directory.
+
+- Download `Ubuntu-20.04` manually from [https://aka.ms/wslubuntu2004](https://aka.ms/wslubuntu2004).
+
+- Change the downloaded file extension from `.AppxBundle` to `.zip` and extract all.
+
+- Find the enclosed file ending in `_x64.appx`, change to `.zip` and extract.
+
+- Move this entire folder to a local location on your system: I like to use `c:\Users\\<USER_NAME\>\WSL\\<DISTRO_NAME\>
+
+- Launch the `ubuntu.exe` in this folder: you may want to also pin a shortcut to this file in the start menu.
+
+- Once installed ensure that your WSL version for that distro is set to `V2`.

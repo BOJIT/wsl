@@ -42,13 +42,13 @@ apt install -y docker-compose
 echo "################ Installing Python ################"
 
 apt install -y python3-pip python3-dev
-sudo -u $CURRENT_USER curl https://pyenv.run | bash
+sudo -u $CURRENT_USER curl https://pyenv.run | sudo -u $CURRENT_USER bash
 sudo -u $CURRENT_USER pip3 install --user pipenv
 
 # Install Node Environment Tools
 echo "################ Installing Node ################"
 
-sudo -u $CURRENT_USER curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+sudo -u $CURRENT_USER curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sudo -u $CURRENT_USER bash
 
 # Change shell to zsh
 echo "################ Installing ZSH ################"
@@ -57,7 +57,7 @@ apt install -y zsh
 sudo -u $CURRENT_USER chsh -s $(which zsh)
 
 # Install oh-my-zsh
-echo "Installing oh-my-zsh: please re-enter password"
+echo "Installing oh-my-zsh: please re-enter password: "
 sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 # cd ../
 
