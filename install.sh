@@ -57,7 +57,7 @@ apt install -y zsh
 sudo -u $CURRENT_USER chsh -s $(which zsh)
 
 # Install oh-my-zsh
-sudo -u $CURRENT_USER curl -o- https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
+sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 cd ../
 
 # Set custom zshrc
