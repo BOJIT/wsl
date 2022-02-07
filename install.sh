@@ -58,14 +58,13 @@ sudo -u $CURRENT_USER chsh -s $(which zsh)
 
 # Install oh-my-zsh
 sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-cd ../
+# cd ../
 
 # Set custom zshrc
 sudo -u $CURRENT_USER curl $BASEURL/zshrc-template --output $PWD/.zshrc
-source .zshrc
 
 # Cleanup dotfiles
 sudo -u $CURRENT_USER rm $PWD/.bashrc
 sudo -u $CURRENT_USER touch $PWD/.hushlogin
 
-nvm install node # Get latest stable
+Echo "Dev environment set up correctly! Restart terminal for changes to take effect"
