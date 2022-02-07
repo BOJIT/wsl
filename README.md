@@ -71,4 +71,7 @@ Sometimes it is not possible to install Ubuntu from the Microsoft Store (particu
 
 - Launch the `ubuntu.exe` in this folder: you may want to also pin a shortcut to this file in the start menu.
 
-- Once installed ensure that your WSL version for that distro is set to `V2`.
+- Once installed ensure that your WSL version for that distro is set to `V2`: with Powershell
+```powershell
+wsl --set-version <DISTRO_NAME> 2
+```
