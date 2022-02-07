@@ -57,6 +57,7 @@ apt install -y zsh
 sudo -u $CURRENT_USER chsh -s $(which zsh)
 
 # Install oh-my-zsh
+echo "Installing oh-my-zsh: please re-enter password"
 sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 # cd ../
 
@@ -64,7 +65,7 @@ sudo -u $CURRENT_USER sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh
 sudo -u $CURRENT_USER curl $BASEURL/zshrc-template --output $PWD/.zshrc
 
 # Cleanup dotfiles
-sudo -u $CURRENT_USER rm $PWD/.bashrc
+sudo -u $CURRENT_USER rm -f $PWD/.bashrc $PWD/.bash_history $PWD/.bash_logout
 sudo -u $CURRENT_USER touch $PWD/.hushlogin
 
-Echo "Dev environment set up correctly! Restart terminal for changes to take effect"
+echo "Dev environment set up correctly! Restart terminal for changes to take effect"
