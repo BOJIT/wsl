@@ -9,14 +9,14 @@ This development image is based on `Ubuntu-20.04`
 
 - Install `Ubuntu-20.04`. This can be done two ways:
     - Install through the Microsoft Store
-    - Install Manually: see [Custom foo description](#appendix:-installing-distro-without-the-microsoft-store)
+    - Install Manually: see *Appendix*
 
 - Install the powerline fonts - this will prettify your terminal!
     - Download the font file in this repo and install it on your system
     - Set the default preferences as follows:
 
-![Set Font](./img/SetFont.png) ![Set Background](./img/SetBackground.png)
-
+<img src="./img/SetFont.png" width="250">
+<img src="./img/SetBackground.png" width="250">
 
 - Run the install script in a fresh WSL Ubuntu installation
 ```bash
