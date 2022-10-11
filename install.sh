@@ -22,22 +22,22 @@ apt install -y \
     curl \
     software-properties-common
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
-apt-key fingerprint 0EBFCD88
+# apt-key fingerprint 0EBFCD88
 
-add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+# add-apt-repository \
+#    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#    $(lsb_release -cs) \
+#    stable"
 
-apt update -y
-apt install -y docker-ce
+# apt update -y
+# apt install -y docker-ce
 
-usermod -aG docker $USER
+# usermod -aG docker $USER
 
-curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+# curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
 
 # Install Python Environment Tools
 echo "################ Installing Python ################"
